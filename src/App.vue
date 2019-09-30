@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div id="container" style="position:absolute;"></div>
     <v-stage ref="stage" :config="stageSize">
       <v-layer>
         <v-line v-for="(item, index) in VerticalLines" :key="index" :config="item"/>
@@ -8,7 +7,6 @@
       <v-layer>
         <v-line v-for="(item, index) in HorizontalLines" :key="index" :config="item"/>
       </v-layer>
-      <v-layer ref="dragLayer"></v-layer>
     </v-stage>
   </div>
 </template>
@@ -66,11 +64,6 @@ export default {
     },
     init() {
       this.stageSize = {
-        width: this.width,
-        height: this.height
-      };
-      this.stageConf = {
-        container: "container",
         width: this.width,
         height: this.height
       };
@@ -178,8 +171,8 @@ export default {
     this.getVerticalLines();
     this.getHorizontalLines();
 
+    this.stage = this.$refs.stage.getStage();
     this.layer = new Konva.Layer();
-    this.stage = new Konva.Stage(this.stageConf);
     // cretate labels on layer
     this.createHorizontalLabels();
     this.createverticalLabels();
