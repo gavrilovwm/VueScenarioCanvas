@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div id="container" style="position:absolute;"></div>
     <v-stage ref="stage" :config="stageSize">
       <v-layer>
         <v-line v-for="(item, index) in VerticalLines" :key="index" :config="item"/>
@@ -8,7 +7,6 @@
       <v-layer>
         <v-line v-for="(item, index) in HorizontalLines" :key="index" :config="item"/>
       </v-layer>
-      <v-layer ref="dragLayer"></v-layer>
     </v-stage>
   </div>
 </template>
@@ -69,11 +67,6 @@ export default {
         width: this.width,
         height: this.height
       };
-      this.stageConf = {
-        container: "container",
-        width: this.width,
-        height: this.height
-      };
       for (let i = 1; i <= this._scenarioCount; i++) {
         this.labelsArray.push("Scenario " + i);
       }
@@ -91,7 +84,7 @@ export default {
           strokeWidth: 3,
           lineCap: "round",
           lineJoin: "round",
-          dash: [10, 10]
+          dash: [5, 10]
         });
       }
     },
@@ -108,7 +101,7 @@ export default {
           strokeWidth: 3,
           lineCap: "round",
           lineJoin: "round",
-          dash: [10, 10]
+          dash: [5, 10]
         });
       }
     },
@@ -178,8 +171,8 @@ export default {
     this.getVerticalLines();
     this.getHorizontalLines();
 
+    this.stage = this.$refs.stage.getStage();
     this.layer = new Konva.Layer();
-    this.stage = new Konva.Stage(this.stageConf);
     // cretate labels on layer
     this.createHorizontalLabels();
     this.createverticalLabels();
