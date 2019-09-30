@@ -91,7 +91,7 @@ export default {
           strokeWidth: 3,
           lineCap: "round",
           lineJoin: "round",
-          dash: [10, 10]
+          dash: [5, 10]
         });
       }
     },
@@ -108,7 +108,7 @@ export default {
           strokeWidth: 3,
           lineCap: "round",
           lineJoin: "round",
-          dash: [10, 10]
+          dash: [5, 10]
         });
       }
     },
