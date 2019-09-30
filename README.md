@@ -1,6 +1,6 @@
 # test-project
 
-> A Vue.js project
+> A Vue.js project for Scenario canvas demonstration
 
 ## Build Setup
 
