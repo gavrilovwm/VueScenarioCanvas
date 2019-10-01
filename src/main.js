@@ -2,10 +2,11 @@ import Vue from "vue";
 import App from "./App";
 
 import VueKonva from "vue-konva";
+import axios from "axios";
 
 Vue.use(VueKonva);
+Vue.use(axios);
 
-/* eslint-disable no-new */
 new Vue({
   el: "#app",
   components: { App },
